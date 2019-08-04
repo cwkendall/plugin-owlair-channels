@@ -1,0 +1,42 @@
+{
+  "name": "plugin-owlair-channels",
+  "version": "4.0.0",
+  "private": true,
+  "scripts": {
+    "bootstrap": "flex-check-start",
+    "postinstall": "npm run bootstrap",
+    "prestart": "npm run bootstrap",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --env=jsdom",
+    "eject": "craco eject",
+    "now-build": "npm run build",
+    "now-dev": "npm run start"
+  },
+  "devDependencies": {
+    "@twilio/flex-ui": "^1.11.2"
+  },
+  "dependencies": {
+    "emotion": "9.2.6",
+    "@craco/craco": "^5.0.2",
+    "axios": "^0.16.2",
+    "craco-config-flex-plugin": "^2",
+    "flex-plugin": "^2",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
+    "react-scripts": "^3.0.0",
+    "react-select": "^3.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

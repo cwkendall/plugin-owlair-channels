@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "name": "plugin-owlair-channels",
+  "alias": "plugin-owlair-channels",
+  "builds": [
+    { "src": "/runtime/express-shim.js", "use": "@now/node" },
+    { "src": "/runtime/functions/*.js", "use": "@now/node" },
+    { "src": "/runtime/assets/*", "use": "@now/static" },
+    { "src": "/public/plugins.json", "use": "@now/static" },
+    { "src": "/package.json", "use": "@now/static-build", "config": { "distDir": "build" } }
+  ],
+  "routes": [
+    { "src": "/plugins.json", "dest": "/public/plugins.json" },
+    { "src": "/assets/(.*)", "dest": "/runtime/assets/$1" },
+    { "src": "/plugin-owlair-channels.js", "dest": "/plugin-owlair-channels.js" },
+    { "src": "/api/(.*)", "dest": "/runtime/express-shim.js" }
+  ],
+  "env": {
+    "TWILIO_ACCOUNT_SID": "@owlair-twilio_account_sid",
+    "TWILIO_AUTH_TOKEN": "@owlair-twilio_auth_token",
+    "TWILIO_WORKSPACE_SID": "@owlair-twilio_workspace_sid",
+    "TWILIO_WORKFLOW_SID": "@owlair-twilio_workflow_sid",
+    "DIALPAD_PHONE_NUMBER": "@owlair-dialpad_phone_number",
+    "DIALPAD_IDENTITY": "@owlair-dialpad_identity",
+    "RUNTIME_DOMAIN": "@owlair-runtime_domain",
+    "CB_DIALPAD_AUTODIAL": "@owlair-cb_dialpad_autodial",
+    "CB_PHONE_NUMBER": "@owlair-cb_phone_number",
+    "CB_TASK_NAME": "@owlair-cb_task_name",
+    "CB_HOLD_MUSIC_URL": "@owlair-cb_hold_music_url",
+    "FLEX_FLOW_SID": "@owlair-flex_flow_sid",
+    "CHAT_SERVICE_SID": "@owlair-chat_service_sid"
+  }
+}

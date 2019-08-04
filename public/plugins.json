@@ -1,0 +1,23 @@
+[
+  {
+    "name": "OwlAirChannelsPlugin",
+    "version": "0.0.1",
+    "class": "OwlAirChannelsPlugin",
+    "requires": [
+      {
+        "@twilio/flex-ui": "^1.9.0"
+      }
+    ],
+    "src": "/plugin-owlair-channels.js"
+  },
+  {
+    "name": "SignalThemePlugin",
+    "version": "0.0.1",
+    "src": "https://rose-woodpecker-7849.twil.io/assets/plugin-signal.js"
+  },
+  {
+    "name": "Flex Admin Plugin",
+    "version": "1.17.1",
+    "src": "https://assets.flex.twilio.com/twilio/flex-admin-plugin/1.17.1/flex-admin-plugin.js"
+  }
+]

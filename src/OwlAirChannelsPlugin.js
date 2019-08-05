@@ -30,7 +30,7 @@ export default class OwlAirChannelsPlugin extends FlexPlugin {
     // NOTE: change the below to the location where functions are hosted e.g.
     //   getRuntimeUrl().replace(/^https?:\/\//, "") + "/api";
     //   manager.serviceConfiguration.runtime_domain;
-    const runtime_domain = "plugin-owlair-channels.twlo-se-au.now.sh";
+    const runtime_domain = "plugin-owlair-channels.twlo-se-au.now.sh/api";
 
     // get the JWE for authenticating the worker in our Function
     const jweToken = manager.store.getState().flex.session.ssoTokenPayload.token;

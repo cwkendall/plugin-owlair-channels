@@ -40,7 +40,7 @@ exports.handler = async function(context, event, callback) {
           to: event.To,
           direction: 'outbound',
           name: context.DIALPAD_IDENTITY,
-          from: event.From,
+          from: event.From || context.DIALPAD_PHONE_NUMBER,
           url: context.RUNTIME_DOMAIN,
           targetWorker: event.Worker,
           autoAnswer: 'true',

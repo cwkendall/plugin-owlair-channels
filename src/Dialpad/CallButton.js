@@ -1,21 +1,23 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { TaskHelper, Actions } from '@twilio/flex-ui';
+import { IconButton, TaskHelper, Actions } from '@twilio/flex-ui';
 import { css } from 'emotion'
 
 import Call from '@material-ui/icons/Call';
 
 const callbutton = css`
-  background-color: #4CAF50;
-  border: none;
+  border: white 1px solid;
   color: white;
   padding: 2px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 2px;
-  margin: 6px 1px;
+  display: flex;
+  align-self: center;
+  font-size: 12px;
+  margin-left: 8px;
+  margin-right: 8px;
   border-radius: 50%;
+  
 `
 
 export class CallButton extends React.Component {
@@ -26,8 +28,8 @@ export class CallButton extends React.Component {
     } else {
 
       return (
-        <Call {...this.props} className={callbutton} onClick={e => {
-          const number = this.props.task.defaultFrom;
+        <IconButton title="CALL" icon={<Call style={{fontSize:"20px"}}/>} {...this.props} className={callbutton} onClick={e => {
+          const number = this.props.task.attributes.from || this.props.task.defaultFrom;
           const workerContactUri = this.props.workerContactUri;
           const runtimeDomain = this.props.runtimeDomain;
           const from = this.props.from;
@@ -49,7 +51,7 @@ export class CallButton extends React.Component {
           } else {
             console.log('Invalid number dialed');
           }
-        }}/>
+        }}>CALL</IconButton>
       )
     }
   }

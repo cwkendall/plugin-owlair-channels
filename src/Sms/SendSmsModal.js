@@ -3,6 +3,8 @@ import * as Flex from "@twilio/flex-ui";
 
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
+import Button from "@material-ui/core/Button";
+
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -67,7 +69,22 @@ class SendSmsModal extends React.Component {
     const isDisabled = this.state.Body.trim().length === 0;
     const theme = this.props.theme;
     const muiTheme = createMuiTheme({
-      palette: { type: theme.calculated.lightTheme ? "light" : "dark"}
+      palette: {
+        type: theme.calculated.lightTheme ? "light" : "dark",
+        primary: {
+          main: "#50508B",
+          dark: "#50508B",
+          contrastText: "#fff"
+        },
+        secondary: {
+          main: '#0044ff',
+          dark: '#0044ff',
+          contrastText: "#fff"
+        },
+      },
+      typography: {
+        fontFamily: "Open Sans"
+      }
     })
     return (
       <div>
@@ -77,8 +94,13 @@ class SendSmsModal extends React.Component {
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
           fullWidth
+          PaperProps={{
+           style: {
+             backgroundColor: "#10103C",
+           }
+          }}
         >
-          <DialogTitle id="form-dialog-title">Send SMS</DialogTitle>
+          <DialogTitle id="form-dialog-title" style={{ fontWeight: "normal", letterSpacing: "2px"}}>SEND SMS</DialogTitle>
           <DialogContent>
             <DialogContentText>To: {this.state.To}</DialogContentText>
             <TextField
@@ -92,10 +114,10 @@ class SendSmsModal extends React.Component {
             />
           </DialogContent>
           <DialogActions>
-            <Flex.Button onClick={this.sendSms} disabled={isDisabled}>
+            <Button onClick={this.sendSms} disabled={isDisabled}>
               Submit
-            </Flex.Button>
-            <Flex.Button onClick={this.handleClose}>Cancel</Flex.Button>
+            </Button>
+            <Button onClick={this.handleClose}>Cancel</Button>
           </DialogActions>
         </Dialog>
       </MuiThemeProvider>

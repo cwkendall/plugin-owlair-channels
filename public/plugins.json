@@ -16,6 +16,11 @@
     "src": "https://rose-woodpecker-7849.twil.io/assets/plugin-signal.js"
   },
   {
+    "name": "OwlAirContextPlugin",
+    "version": "0.0.1",
+    "src": "https://plugin-owlair-context.twlo-se-au.now.sh/plugin-owlair-context.js"
+  },
+  {
     "name": "Flex Admin Plugin",
     "version": "1.17.1",
     "src": "https://assets.flex.twilio.com/twilio/flex-admin-plugin/1.17.1/flex-admin-plugin.js"

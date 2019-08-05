@@ -7,7 +7,7 @@ import GroupAdd from '@material-ui/icons/GroupAdd';
 import GridOn from '@material-ui/icons/GridOn';
 
 const wrapper = css`
-  height: 400px;
+  height: auto;
 `
 
 const iconButtons = css`

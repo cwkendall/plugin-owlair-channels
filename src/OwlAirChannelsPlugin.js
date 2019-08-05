@@ -16,7 +16,7 @@ import OutboundSmsView from "./Sms/OutboundSmsView";
 
 import SendSmsModal from "./Sms/SendSmsModal";
 import { SendSmsButton } from "./Sms/SendSmsButton";
-import { TaskHelper } from "@twilio/flex-ui";
+import { TaskHelper, Notifications, NotificationType } from "@twilio/flex-ui";
 
 const PLUGIN_NAME = "OwlAirChannelsPlugin";
 
@@ -114,6 +114,14 @@ export default class OwlAirChannelsPlugin extends FlexPlugin {
       <CallButton key="callbutton" runtimeDomain={runtime_domain} jweToken={jweToken} />,
       { sortOrder: 1 }
     );
+    
+    manager.strings.outboundCallNotification = "Outgoing call placed to {{number}}"
+    Notifications.registerNotification({
+      id: "outboundCallNotificationId",
+      content: "outboundCallNotification", // template
+      type: NotificationType.success,
+      icon: "Call"
+    });
 
     //create custom task TaskChannel
     const outboundVoiceChannel = flex.DefaultTaskChannels.createCallTaskChannel(

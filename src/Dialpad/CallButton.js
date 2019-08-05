@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { IconButton, TaskHelper, Actions } from '@twilio/flex-ui';
+import { IconButton, TaskHelper, Actions, Notifications } from '@twilio/flex-ui';
 import { css } from 'emotion'
 
 import Call from '@material-ui/icons/Call';
@@ -43,11 +43,13 @@ export class CallButton extends React.Component {
               method: 'POST',
               body: `From=${from}&To=${number}&Worker=${workerContactUri}&Token=${this.props.jweToken}`
             })
-            .then(response => response.json())
-            .then(json => {
-              Actions.invokeAction('NavigateToView', {viewName: 'agent-desktop'});
-              Actions.invokeAction('SelectTask', {taskSid: json});
-            })
+            .then(response => response.text()
+              .then(text => {
+                Notifications.showNotification("outboundCallNotificationId", { number: number } );
+                Actions.invokeAction('NavigateToView', {viewName: 'agent-desktop'});
+                Actions.invokeAction('SelectTask', {taskSid: text});
+              })
+            )
           } else {
             console.log('Invalid number dialed');
           }

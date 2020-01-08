@@ -19,7 +19,7 @@
   "dependencies": {
     "emotion": "9.2.6",
     "@craco/craco": "^5.0.2",
-    "axios": "^0.16.2",
+    "axios": "^0.18.1",
     "craco-config-flex-plugin": "^2",
     "flex-plugin": "^2",
     "react": "16.5.2",

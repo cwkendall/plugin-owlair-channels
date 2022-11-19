@@ -24,7 +24,7 @@
     "flex-plugin": "^2",
     "react": "16.5.2",
     "react-dom": "16.5.2",
-    "react-scripts": "^3.0.0",
+    "react-scripts": "^5.0.1",
     "react-select": "^3.0.3"
   },
   "browserslist": {
